@@ -31,16 +31,17 @@ enum class LogLevel : std::uint8_t {
     void log_internal(LogLevel level, const char* file, int line, const char* fmt, ...);
 #endif
 
-#define TRACE(fmt, ...) log_internal(LogLevel::LOG_TRACE, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RTRACE(fmt, ...) log_internal(LogLevel::LOG_TRACE, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
-#define DEBUG(fmt, ...) log_internal(LogLevel::LOG_DEBUG, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RDEBUG(fmt, ...) log_internal(LogLevel::LOG_DEBUG, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
-#define INFO(fmt, ...) log_internal(LogLevel::LOG_INFO, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RINFO(fmt, ...) log_internal(LogLevel::LOG_INFO, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
-#define WARN(fmt, ...) log_internal(LogLevel::LOG_WARNING, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RWARN(fmt, ...) log_internal(LogLevel::LOG_WARNING, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
-#define ERROR(fmt, ...) log_internal(LogLevel::LOG_ERROR, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RERROR(fmt, ...) log_internal(LogLevel::LOG_ERROR, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
-#define FATAL(fmt, ...) log_internal(LogLevel::LOG_FATAL, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+#define RFATAL(fmt, ...) log_internal(LogLevel::LOG_FATAL, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
+
 
 #endif /* log_logger_hpp */
