@@ -20,7 +20,12 @@ typedef enum log_level_t {
 /// @param line provided by __LINE__
 /// @param fmt the actual message
 /// @param ... provided by __VA_ARGS__
-void log_internal(log_level_t level, const char* file, int line, const char* fmt, ...);
+#if defined(__GNUC__) || defined(__clang__)
+    void log_internal(log_level_t level, const char* file, int line, const char* fmt, ...)
+    __attribute__((format(printf, 4, 5)));
+#else
+    void log_internal(log_level_t level, const char* file, int line, const char* fmt, ...)
+#endif
 
 #define LOG_TRACE(fmt, ...) log_internal(LOG_TRACE, __FILE_NAME__, __LINE__, fmt, ##__VA_ARGS__)
 
