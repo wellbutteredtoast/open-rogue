@@ -5,6 +5,7 @@ Use the list below to jump to your target system. If it's not listed, document y
 
 ### Linux Targets
  - [Linux (x86_64)](#building-for-linux-x86_64)
+ - [Linux (arm64)](#building-for-linux-arm64)
 
 ### Windows Targets
 
@@ -30,3 +31,8 @@ Use the list below to jump to your target system. If it's not listed, document y
     - `chmod +x setup/setup.sh`
 2. Run the setup script _before_ you run the Makefile. Setup will check for any missing dependencies and setup the build environment.
 3. Run `make` and the process begins! It should only take a few seconds for compiling and linking to occur.
+
+# Building for Linux (arm64)
+
+> [!NOTE]
+> WIP section, will be finalized in a few hours (12:22 PM NST 29 September 2026)
