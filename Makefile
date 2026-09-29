@@ -196,6 +196,7 @@ run: $(TARGET)
  
 clean:
 	rm -rf $(OBJECT_DIR) $(TARGET)
+	rm -f compile_commands.json
 
 info:
 	@echo "OpenRogue Information (produced by Make)"
