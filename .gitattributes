@@ -1,1 +1,13 @@
 # gitattributes
+
+*.h     linguist-language=C++
+*.hpp   linguist-language=C++
+*.c     linuist-language=C
+*.cpp   linguist-language=C++
+
+docs/*      linguist-generated
+external/*  linguist-vendored
+
+*.ps1   eol=crlf
+*.bat   eol=crlf
+*.*     eol=lf
