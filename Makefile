@@ -1,6 +1,13 @@
 # OpenRogue Makefile
 # (C) 2026 OpenRogue Project
 # SPDX-License-Identifier: zlib
+#
+# This Makefile is designed for Linux/macOS and tries to avoid GNUMake
+# specific -isms for the sake of portability. Windows users cannot make
+# use of this Makefile since the only assumptions it makes are UNIX related.
+#
+# As of 29 September 2026 - I don't have a Windows buildsystem setup.
+# Help would be appreciated on this!
 
 # -----------------------------------------------------------------------------
 # Flags
