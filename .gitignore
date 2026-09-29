@@ -1,2 +1,25 @@
-*.o
+# Hidden directories
+.vscode/
+.idea/
+.vs/
+
+# Not tracking object files/dirs
+obj/
 bin/
+
+# Compiler outputs we're not tracking
+*.[Oo]
+*.[Ss]
+*.map
+*.pdb
+*.ilk
+*.exp
+*.dll
+*.so.*
+*.exe
+*.lib
+
+# Other files not being tracked
+*.cmake
+*.rst
+*.doc
