@@ -1,9 +1,9 @@
-#include "log/logger.h"
+#include "log/logger.hpp"
 
-#include <stdarg.h>
-#include <stdio.h>
+#include <cstdio>
+#include <cstdarg>
 
-void log_internal(log_level_t level, const char* file, int line, const char* fmt, ...) {
+void log_internal(enum LogLevel level, const char* file, int line, const char* fmt, ...) {
     /* I don't think this is the most efficient way to do this. Oh well, we 
      * can always come back to this later if this is somehow causing slowdowns.
      */
@@ -16,32 +16,32 @@ void log_internal(log_level_t level, const char* file, int line, const char* fmt
     va_end(args);
 
     switch (level) {
-        case LOG_TRACE:
+        case LogLevel::LOG_TRACE:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Trace", file, line, buf);
             fputs(final_buf, stdout);
             break;
 
-        case LOG_DEBUG:
+        case LogLevel::LOG_DEBUG:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Debug", file, line, buf);
             fputs(final_buf, stdout);
             break;
 
-        case LOG_INFO:
+        case LogLevel::LOG_INFO:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Info ", file, line, buf);
             fputs(final_buf, stdout);
             break;
 
-        case LOG_WARNING:
+        case LogLevel::LOG_WARNING:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Warn ", file, line, buf);
             fputs(final_buf, stdout);
             break;
 
-        case LOG_ERROR:
+        case LogLevel::LOG_ERROR:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Error", file, line, buf);
             fputs(final_buf, stdout);
             break;
 
-        case LOG_FATAL:
+        case LogLevel::LOG_FATAL:
             snprintf(final_buf, sizeof(final_buf), "[%s] %s: %d > %s\n", "Fatal", file, line, buf);
             fputs(final_buf, stdout);
             break;
