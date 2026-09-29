@@ -112,8 +112,8 @@ OBJECT_DIR		:= $(OUTPUT_DIR)/obj
 # Usage: $(call rwildcard,<dir>,<pattern>)
 rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-SRC_C	:= $(call rwildcard,$(SOURCE_DIR),*.c)
-SRC_CXX	:= $(call rwildcard,$(SOURCE_DIR),*.cpp)
+SRC_C		:= $(call rwildcard,$(SOURCE_DIR),*.c)
+SRC_CXX		:= $(call rwildcard,$(SOURCE_DIR),*.cpp)
 
 OBJ_C		:= $(patsubst $(SOURCE_DIR)/%,$(OBJECT_DIR)/%.o,$(SRC_C))
 OBJ_CXX		:= $(patsubst $(SOURCE_DIR)/%,$(OBJECT_DIR)/%.o,$(SRC_CXX))
@@ -124,8 +124,8 @@ DEPS		:= $(OBJECTS:.o=.d)
 ifneq (,$(filter MINGW% MSYS% CYGWIN%,$(UNAME_S)))
 	EXE := .exe
 endif
-TARGET	:= $(OUTPUT_DIR)/openrogue$(EXE)
 
+TARGET	:= $(OUTPUT_DIR)/openrogue$(EXE)
 LINKER	:= $(if $(SRC_CXX),$(CXX),$(CC))
 
 # -----------------------------------------------------------------------------
@@ -205,6 +205,11 @@ info:
 	@echo "Compiler family:  $(CC_FAMILY)"
 	@echo "Compiler version: $(CC_VERSION)"
 	@echo "Compiler target:  $(CC_TARGET)"
+	@echo
+	@echo [Tool Info]
+	@echo "Make version:     $(shell make --version | head -n1)"
+	@echo "Git version:      $(shell git --version | head -n1)"
+	@echo "CMake version:    $(shell cmake --version | head -n1)"
 	@echo
 	@echo "[System Info]"
 	@echo "System name:      $(UNAME_S)"
