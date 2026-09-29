@@ -38,3 +38,6 @@ bin/
 *.gz
 *.xz
 *.bz2
+
+# Built by some tools
+compile_commands.json
