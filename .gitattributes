@@ -5,7 +5,10 @@
 *.c     linuist-language=C
 *.cpp   linguist-language=C++
 
+# docs are not actually generated, we just don't count the lines
 docs/*      linguist-generated
+
+# some future deps that are small may get vendored, ignore them
 external/*  linguist-vendored
 
 *.ps1   eol=crlf

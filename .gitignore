@@ -18,8 +18,23 @@ bin/
 *.so.*
 *.exe
 *.lib
+*.bin
+*.dol
+*.nds
+*.3dsx
+*.xex
+*.bin
 
 # Other files not being tracked
 *.cmake
 *.rst
 *.doc
+
+# Archives
+*.7z
+*.rar
+*.zip
+*.tar.*
+*.gz
+*.xz
+*.bz2
