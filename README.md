@@ -19,4 +19,4 @@ Refer to our [build docs](./docs/build-from-source.md) for instructions on build
 
 ## What's the license for all of this content?
 
-The games' code is released as open source software under the zlib license. The creative assets (sprites, models, music, dialogue, etc.) are released under CC BY-SA-NC 4.0 unless otherwise noted in `assets/LICENSES.md`. Assets cannot be used commercially without the author's express permission. Contributors keep their copyright and can grant commercial permission for their own work.
+The games' code is released as open source software under the zlib license. The creative assets (sprites, models, music, dialogue, etc.) are released under CC BY-SA-NC 4.0 unless otherwise noted in `assets/LICENSES.md`. Assets cannot be used commercially unless the author has provided their expressed consent. Contributors keep their copyright and can grant commercial permission for their own work.
