@@ -7,6 +7,9 @@
 obj/
 bin/
 
+# Not tracking external dependencies
+external/
+
 # Compiler outputs we're not tracking
 *.[Oo]
 *.[Ss]

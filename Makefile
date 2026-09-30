@@ -100,6 +100,13 @@ WERRORS		:= \
 	-Werror=return-type -Werror=null-dereference
 
 # -----------------------------------------------------------------------------
+# GLFW
+# -----------------------------------------------------------------------------
+
+GLFW_INCLUDE	:= $(shell pwd)/external/glfw/include
+GLFW_LIB		:= $(shell pwd)/external/glfw/build/src/
+
+# -----------------------------------------------------------------------------
 # Source collection
 # -----------------------------------------------------------------------------
 
@@ -150,7 +157,8 @@ endif
  
 DEP_FLAGS	:= -MMD -MP
  
-CPPFLAGS	:= -I$(INCLUDE_DIR) $(BUILDINFO_DEFS) $(DEP_FLAGS) $(EXTRA_CPPFLAGS)
+CPPFLAGS	:= -I$(INCLUDE_DIR) -I$(GLFW_INCLUDE) $(BUILDINFO_DEFS) \
+				$(DEP_FLAGS) $(EXTRA_CPPFLAGS)
  
 CFLAGS		:= $(C_STANDARD) $(OPT_FLAGS) $(SAN_FLAGS) $(PEDANTIC_FLAGS) \
 				$(WARN_COMMON) $(WARN_C) $(WERRORS) $(EXTRA_CFLAGS)
@@ -158,7 +166,8 @@ CFLAGS		:= $(C_STANDARD) $(OPT_FLAGS) $(SAN_FLAGS) $(PEDANTIC_FLAGS) \
 CXXFLAGS	:= $(CXX_STANDARD) $(OPT_FLAGS) $(SAN_FLAGS) $(PEDANTIC_FLAGS) \
 				$(WARN_COMMON) $(WARN_CXX) $(WERRORS) $(EXTRA_CXXFLAGS)
  
-LDFLAGS		:= $(SAN_FLAGS) $(EXTRA_LDFLAGS)
+LDFLAGS		:= $(SAN_FLAGS) $(EXTRA_LDFLAGS) -L$(GLFW_LIB) -lglfw3 -lm \
+				-lGL -lX11 -lpthread -lXrandr -lXi
  
 ifeq ($(V),1)
   Q :=
